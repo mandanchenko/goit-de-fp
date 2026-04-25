@@ -40,6 +40,7 @@ def main():
         # 3. Читання CSV та запис у Bronze (Parquet)
         print(f"Обробка таблиці {table}...")
         df = spark.read.csv(local_csv_path, header=True, inferSchema=True)
+        df.show(10)
         
         output_path = os.path.join(bronze_dir, table)
         df.write.mode("overwrite").parquet(output_path)

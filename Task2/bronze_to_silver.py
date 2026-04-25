@@ -32,6 +32,8 @@ def main():
         df = clean_text_columns(df)
         df = df.dropDuplicates()
 
+        df.show(10)
+
         df.write.mode("overwrite").parquet(output_path)
         print(f"Таблицю {table} збережено в Silver: {output_path}")
 

@@ -30,6 +30,10 @@ def main():
 
     gold_df.write.mode("overwrite").parquet(gold_dir)
     print(f"Gold збережено: {gold_dir}")
+
+    print("--- ТАБЛИЦЯ GOLD ---")
+    gold_df.show(10)
+    
     spark.stop()
 
 if __name__ == "__main__":
